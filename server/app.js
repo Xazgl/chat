@@ -45,9 +45,19 @@ webSocketServer.on('connection',function(ws) {
 
 
 // request - получаем данные из формы .response - отсылает данные пользователю
-app.get('/test-form',function(request,response) {
-   response.send(request.query)
-}) 
+//app.get('/test-form',function(request,response) {
+  // response.send(request.query)
+//}) 
+
+app.use(express.json())
+
+app.post('/chat',function (request, response) {
+   console.log(request.body);
+   response.send(request.body)
+
+
+})
+
 
 app.use(express.static('../client'))
 
